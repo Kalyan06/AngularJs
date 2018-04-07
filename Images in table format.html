@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<style>
+			img
+			{
+				height:120px;
+				width:150px;
+				border:2px solid red;
+				padding:2px;
+				margin:5px;
+			}
+		</style>
+	</head>
+	<body ng-app="">
+		<div ng-init="ar=['i1.jpg','i2.jpg','i3.jpg','i4.jpg','i5.jpg','i6.jpg','i7.jpg']">
+		<table border="2"  bordercolor="green" width="330px">
+			<tr>
+				<th>S No</th>
+				<th>Image Name</th>
+				<th>Image</th>
+			</tr>
+			<tr ng-repeat="item in ar">
+				<td align="center">{{$index+1}}</td>
+				<td style="color:blue;" align="center"> {{item}} </td>
+				<td> <img src="Images/{{item}}" > </td>
+			</tr>
+		</table>
+		</div>
+		<script src="angular.js"></script>
+	</body>
+</html>

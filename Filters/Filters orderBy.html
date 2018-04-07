@@ -1,0 +1,53 @@
+<html>
+	<head></head>
+	<body ng-app="myApp">
+		<div ng-controller="Demo">
+	<!--	Select <select ng-model="x">
+					<option value="sname">Student Name</option>
+					<option value="course">Course</option>
+			   </select><br>
+		Do you want to sort in decending order?
+		<input type="checkbox" ng-model="y">-->
+		<table border=""  width="210px" cellspacing="0px">
+			<tr>
+				<th><a href="" ng-click="x='sname';y=!y">Student Name</a></th>
+				<th><a href="" ng-click="x='course';y=!y">Course</a></th>
+			</tr>
+			<tr ng-repeat="item in ar|orderBy:x:y">
+				<td> {{item.sname}}</td>
+				<td> {{item.course}}</td>
+			</tr>
+		</table>
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("Demo",function($scope)
+								  {
+									$scope.x="sname";
+									$scope.y=false;
+									$scope.ar=[{sname:"Kalyaan",course:"AngularJS"},
+											   {sname:"Scott",course:"Java"},
+											   {sname:"Kalyaan",course:"HTML"},
+											   {sname:"Kalyaan",course:"CSS"},
+											   {sname:"Raju",course:"AngularJS"},
+											   {sname:"Ravi",course:"jQuery"},
+											   {sname:"Scott",course:"jQuery"},
+											   {sname:"Ravi",course:"HTML"},
+											   {sname:"Ravi",course:"AngularJS"},
+											   {sname:"Kalyaan",course:"Java"},
+											   {sname:"Balu",course:"HTML"},
+											   {sname:"Kiran",course:"Java"},
+											   {sname:"Balaji",course:"HTML"},
+											   {sname:"Balaji",course:"CSS"},
+											   {sname:"Kalyaan",course:"javascript"},
+											   {sname:"Manoj",course:"HTML"},
+											   {sname:"Chanakya",course:"HTML"},
+											   {sname:"Chanakya",course:"CSS"},
+											   {sname:"Yugandar",course:"Java"},
+											   {sname:"Yugandar",course:"HTML"},
+											   {sname:"Balaji",course:"Java"}];
+								  });
+		</script>
+	</body>
+</html>

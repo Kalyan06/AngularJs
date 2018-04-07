@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<link href="bootstrap.min.css" rel="stylesheet" />
+	</head>
+	<body ng-app="myapp">
+		<h3>AngularJs integration with Bootstrap</h3>
+		<hr/>
+		<div ng-controller="DemoController">
+			<table>
+				<tr>
+					<td>Department No </td><td><input ng-model="d.deptno"/></td>
+				</tr>
+				<tr>
+					<td>Department Name </td><td><input ng-model="d.dname"/></td>
+				</tr>
+				<tr>
+					<td>Location </td><td><input ng-model="d.loc"/></td>
+				</tr>
+			</table>
+			<div class="btn-group">
+				<input type="button" class="btn btn-primary" value="Add Dept" ng-click="addDept()"/>
+				<input type="button" class="btn btn-success" value="Edit Dept" ng-click=""/>
+				<input type="button" ng-class="{'btn btn-danger':true}" value="Delete All" ng-click="clearDept()"/>
+			</div><br/>
+			<table style="color:white;width:400;" class="table" border="2">
+				<tr class="bg-primary">
+					<th>Dept No</th>
+					<th>Dept Name</th>
+					<th>Location</th>
+				</tr>
+				<tr ng-repeat="item in depts track by $index" ng-class="{'bg-success':$even,'bg-danger':$odd}">
+					<td>{{item.deptno}}</td>
+					<td>{{item.dname}}</td>
+					<td>{{item.loc}}</td>
+				</tr>
+			</table>
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var myapp=angular.module("myapp",[]);
+			myapp.controller("DemoController",function($scope){
+							$scope.depts=[{deptno:10,dname:'Sales',loc:'Hyd'},
+										  {deptno:20,dname:'Marketing',loc:'Delhi'},
+										  {deptno:30,dname:'Production',loc:'pune'},
+										  {deptno:40,dname:'Hr',loc:'Mumbai'},
+										  {deptno:50,dname:'R&D',loc:'Chennai'},];
+							$scope.d={deptno:"",dname:"",loc:""};
+							$scope.clearDept=function(){
+										$scope.depts=[];
+									}
+							$scope.addDept=function(){
+										$scope.depts.push($scope.d);
+										clear();
+									}
+								var clear=function(){
+												$scope.d={deptno:"",dname:"",loc:""};
+											}
+						});
+		</script>
+	</body>
+</html>

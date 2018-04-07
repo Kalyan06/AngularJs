@@ -1,0 +1,46 @@
+<html>
+	<head></head>
+	<body ng-app="myApp">
+		<div ng-controller="DemoController">
+			Product Id: {{products.pid}}<br>
+			Product Name: {{products.pname}}<br>
+			Brand Name: {{products.brand}}<br>
+			Unit price: {{products.price}}<br><hr/>
+			Product Id: {{products.pid}}<br>
+			Product Name: {{products.pname|uppercase}}<br>
+			Brand Name: {{products.brand|lowercase}}<br>
+			Unit price: {{products.price | currency:'&#8377; '}}<br><hr/>
+			<table border="" cellspacing="0px" width="350px" >
+				<tr>
+					<th>Product Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+					<th ng-model="x='brand'">Brand</th>
+					<th>Price</th>
+				</tr>
+				<tr ng-repeat="item in proObj|orderBy:x:y">
+				<td> {{item.pname|uppercase}}</td>
+				<td> {{item.brand|lowercase}}</td>
+				<td> {{item.price|currency:'&#8377; '}}</td>
+			</tr>
+			</table>
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("DemoController",function($scope)
+											{
+												$scope.x="";
+												$scope.y=false;
+												$scope.products={pid:1021,pname:"Nikon coolpix S500",brand:"Nikon",price:6740};
+												$scope.proObj=[{pid:1021,pname:"Nikon coolpix S500",brand:"Nikon",price:8789},
+																{pid:1021,pname:"Sony Cyber-shoot 830",brand:"sony",price:6900},
+																{pid:1021,pname:"Nikon coolpix S500",brand:"Nikon",price:6345},
+																{pid:1021,pname:"Sony Cyber-shoot 830",brand:"Sony",price:9322},
+																{pid:1021,pname:"Nikon coolpix S500",brand:"Nikon",price:7650},
+																{pid:1021,pname:"Nikon coolpix B700",brand:"Nikon",price:22800},
+																{pid:1021,pname:"Nikon Under water",brand:"Nikon",price:16780},
+																{pid:1021,pname:"Sony dsc w830",brand:"SonY",price:7900},
+												];
+											});
+		</script>
+	</body>
+</html>

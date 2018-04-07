@@ -1,0 +1,50 @@
+<html>
+	<body ng-app="my">
+	<div ng-controller="demo">
+	<input type="button" value="First" ng-click="firstImg()"/>&nbsp;
+	<input type="button" value="Previous" ng-click="previousImg()"/>&nbsp;
+	<input type="button" value="  Next  " ng-click="nextImg()"/>&nbsp;
+	<input type="button" value="Last" ng-click="lastImg()"/><br></br>
+		<img ng-src="Images/{{x}}" width="250px" height="150px"/>
+		<div align="left">{{x}}</div>
+	</div>
+		<script src="angular.js"></script>
+		<script>					
+			var app=angular.module("my",[]);
+			app.controller("demo",function($scope)
+								{
+									$scope.imgs=['i1.jpg','i2.jpg','i3.jpg','i4.jpg','i5.jpg','i6.jpg','i7.jpg'];
+									$scope.x=$scope.imgs[0];
+									$scope.y=0; 
+									$scope.firstImg=function()
+									{
+										$scope.y=0;
+										$scope.x=$scope.imgs[$scope.y];
+									};
+									$scope.nextImg=function()
+									{
+										$scope.y=$scope.y+1;
+										if($scope.y==$scope.imgs.length)
+										{
+											$scope.y=0;
+										}
+										$scope.x=$scope.imgs[$scope.y];
+									};
+									$scope.previousImg=function()
+									{
+										$scope.y=$scope.y-1;
+										if($scope.y<0)
+										{
+											$scope.y=$scope.imgs.length-1;
+										}
+										$scope.x=$scope.imgs[$scope.y];
+									};
+									$scope.lastImg=function()
+									{
+										$scope.y=$scope.imgs.length-1;
+										$scope.x=$scope.imgs[$scope.y];
+									};
+								});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<style>
+			.c1{color:Red;}
+		</style>
+	</head>
+	<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<form name="f1" novalidate>
+			First name<input name="t1" ng-model="fname" ng-required="true" />
+				<span class="c1" ng-show="f1.t1.$error.required && f1.t1.$dirty">
+					First name is required
+				</span><br/>
+			Last name<input name="t2" ng-model="lname" ng-required="true" />
+				<span class="c1" ng-show="f1.t2.$error.required && f1.t2.$dirty ">
+					Last name is required
+				</span><br/>
+			City <input name="t3" ng-model="city" ng-required="true" ng-minlength="3" ng-maxlength="10" />
+				<span class="c1" ng-show="f1.t3.$error.minlength && f1.t3.$dirty">
+					City name should be minimum 3 characters
+				</span>
+				<span class="c1" ng-show="f1.t3.$error.maxlength && f1.t3.$dirty">
+					City name should have maximum 10 characters
+				</span>
+				<span class="c1" ng-show="f1.t3.$error.required && f1.t3.$dirty ">
+					City is required
+				</span>
+				<br/>
+			Email Id <input name="t4" ng-model="email" type="email" />
+				<span class="c1" ng-show="f1.t4.$error.email && f1.t4.$dirty">
+					Enter valid email id
+				</span><br/>
+			Pincode <input name="t5" ng-model="pincode" ng-pattern="/^\d{6}$/" />
+				<span class="c1" ng-show="f1.t5.$error.pattern && f1.t5.$dirty">
+					Pincode should contain 6 digits
+				</span><br/>
+			<input type="submit" ng-disabled="f1.$invalid">
+		</form>
+	</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("DemoController",function($scope)
+									{
+										$scope.fname="";
+										$scope.lname="";
+										$scope.email="";
+										$scope.city="";
+										$scope.pincode="";
+									});
+		</script>
+	</body>
+</html>

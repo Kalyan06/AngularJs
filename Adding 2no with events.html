@@ -1,0 +1,23 @@
+<html>
+	<body ng-app="myApp">
+	<div ng-controller="Demo">
+		Enter first number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input ng-model="x"/><br/>
+		Enter second number: <input ng-model="y"/><br/>
+		<input type="Button" value="Add" ng-click="f1()">
+		<div>{{z}}</div>
+	</div>
+		<script src="angular.js"></script>
+		<script>
+			angular.module("myApp",[]).controller("Demo",function($scope)
+								{
+									$scope.x="";
+									$scope.y="";
+									$scope.z="";
+									$scope.f1=function()
+											{
+												$scope.z=parseInt($scope.x)+parseInt($scope.y);
+											};
+								});
+		</script>
+	</body>
+</html>

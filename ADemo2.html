@@ -1,0 +1,93 @@
+<html>
+	<body ng-app="">
+	<h2>Developing web pages using AngularJS</h2>			
+	<hr/>
+	<!--Display table with selected colour-->
+	<div ng-init="c='Red'">
+	Select color:<select ng-model="c">
+					<option>Red</option>
+					<option>Green</option>
+					<option>Pink</option>
+					<option>Orange</option>
+				 </select><br><br>
+		<table bgcolor="{{c}}" border="2" width="350px" >
+			<tr>
+				<th>S.No</th>
+				<th>Student Name</th>
+				<th>Course Name</th>
+			</tr>
+			<tr>
+				<td>1025</td>
+				<td>Scott</td>
+				<td>AngularJS</td>
+			</tr>
+			<tr>
+				<td>1026</td>
+				<td>Stephen</td>
+				<td>JQuery</td>
+			</tr>
+			<tr>
+				<td>1027</td>
+				<td>James</td>
+				<td>Bootstrap</td>
+			</tr>
+			<tr>
+				<td>1028</td>
+				<td>David</td>
+				<td>Java Script</td>
+			</tr>
+		</table>
+		</div><br/>
+		<hr/>
+		<!-- Display selected image using AgularJS-->
+		<div ng-init="img='i1.jpg'">
+		Select image <select ng-model="img">
+						<option>i1.jpg</option>
+						<option>i2.jpg</option>
+						<option>i3.jpg</option>
+						<option>i4.jpg</option>
+						<option>i5.jpg</option>
+						<option>i6.jpg</option>
+					 </select><br/>
+			Zoom &nbsp;&nbsp;&nbsp;<input type="range" min="50" max="500" ng-model="x"/><br/>
+			<img src="Images/{{img}}" height="{{x}}" width="{{x}}" border="2"/><br/>
+		</div>
+		<hr/>
+		<!--Custimizing table-->
+		<div ng-init="bo=2;sp=2;cp=2;">
+		Select background colour<input type="color" ng-model="cb"/><br/>
+		Cellspscing<input type="range" min="0" max="20" ng-model="sp"/><br/>
+		Cellpadding<input type="range" min="0" max="20" ng-model="cp"/><br/>
+		Border width<input type="range" min="1" max="10" ng-model="bo"/><br/>
+		<table bgcolor="{{cb}}" cellspacing="{{sp}}" cellpadding="{{cp}}" border="{{bo}}" width="400" align="center">
+			<tr>
+				<th>S.No</th>
+				<th>Student Name</th>
+				<th>Course Name</th>
+			</tr>
+			<tr>
+				<td>1025</td>
+				<td>Scott</td>
+				<td>AngularJS</td>
+			</tr>
+			<tr>
+				<td>1026</td>
+				<td>Stephen</td>
+				<td>JQuery</td>
+			</tr>
+			<tr>
+				<td>1027</td>
+				<td>James</td>
+				<td>Bootstrap</td>
+			</tr>
+			<tr>
+				<td>1028</td>
+				<td>David</td>
+				<td>Java Script</td>
+			</tr>
+		</table>
+		</div>
+		<script src="angular.js">
+		</script>
+	</body>
+</html>

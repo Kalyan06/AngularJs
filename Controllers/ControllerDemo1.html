@@ -1,0 +1,31 @@
+<html>
+	<head></head>
+	<body ng-app="myApp">
+		<h2>Controller Demo</h2><hr/>
+		<table ng-controller="Demo" border="2">
+			<tr>
+				<td>Product Id :</td><td> {{pid}}</td>
+			</tr>
+			<tr>
+				<td>Product Name :</td><td> {{pname}}</td>
+			</tr>
+			<tr>
+				<td>Brand :</td><td> {{brand}}</td>
+			</tr>
+			<tr>
+				<td>Price  :</td><td> INR {{price}}.00  </td>
+			</tr>
+		</table>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module('myApp',[]);
+			app.controller('Demo',function($scope)
+									{
+										$scope.pid=1201;
+										$scope.pname="Car";
+										$scope.brand="Audi";
+										$scope.price=159400;
+									});
+		</script>
+	</body>
+</html>

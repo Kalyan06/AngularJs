@@ -1,0 +1,44 @@
+<!--Using Factory-->
+<html>
+	<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<table >
+			<tr>
+				<td>Employee Number</td>
+				<td> <input ng-model="s1" /> </td>
+			</tr>
+			<tr>
+				<td>Employee Name</td>
+				<td> <input ng-model="s2" /> </td>
+			</tr>
+			<tr>
+				<td>Salary</td>
+				<td> <input ng-model="s3" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="button" ng-click="f2()" value="Add Employee">
+					<input type="button" ng-click="f5()" value="Edit Employee">
+					<input type="button" ng-click="f1()" value=" Get Data ">
+				</td>
+			</tr>
+		</table><br></br>
+		<table border="" width="450px">
+			<tr>
+				<th>Employee Number</th>
+				<th>Employee Name</th>
+				<th>Salary</th>
+				<th> Select | Delete </th>
+			</tr>
+			<tr ng-repeat="item in ar">
+				<td align="center">{{item.empno}}</td>
+				<td align="center">{{item.ename}}</td>
+				<td>{{item.sal}}</td>
+				<td align="center"><a href="" ng-click="f3($index)"> Select</a> | <a href="" ng-click="f4($index)"> Delete</a></td>
+			</tr>
+		</table>
+	</div>
+		<script src="D:\KALYAAN\Books\HTML\Angular\angular.js"></script>
+		<script src="empfactory.js"></script>
+	</body>
+</html>

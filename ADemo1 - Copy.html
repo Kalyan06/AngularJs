@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Angular JS one time binding</title>
+	</head>
+	<body ng-app="myApp">
+		<h3>Angular JS one time binding</h3>
+		<hr/>
+		<div ng-controller="demo">
+		Enter text <input ng-model="x"/>
+		<div ng-non-bindable ng-bind="{{x}}{{y}}">Welcome  </div>
+		</div>
+		<script src="angular.js">
+		</script>
+	</body>
+	<script>
+	var app=angular.module("myApp",[]);
+	app.controller("demo",function($scope)
+							{
+								$scope.x="AJS";
+								$scope.y=1;
+							});
+	</script>
+</html>

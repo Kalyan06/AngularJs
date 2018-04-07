@@ -1,0 +1,33 @@
+<html>
+<head>
+	<style>
+		p
+		{
+			border:5px solid blue;
+			width:80px;
+			text-align:center;
+			background-color:blue;
+			color:white;
+			border-radius:15px;	
+			padding:4px;
+			margin:8px;
+			float:left;
+		}
+	</style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<p ng-repeat="items in ar track by $index">
+			{{items}}
+		</p>
+	</div>
+<script src="angular.js"></script>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("DemoController",function($scope)
+								{
+									$scope.ar=["HTML","CSS","Javascript","AngularJS","Bootstrap","JQuery","HTML","CSS","Javascript","AngularJS","Bootstrap","JQuery"];
+								});
+</script>
+</body>
+</html>

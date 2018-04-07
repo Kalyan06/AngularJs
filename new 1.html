@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>AngularJS Test Application</title>  
+    <script src="angular.js"></script>  
+</head>
+<body ng-app="myapp">  
+    <h2>AngularJS - Scope Inheritance</h2>  
+    <div ng-controller="ParentController">  
+        <div ng-controller="firstChildController">   
+            <div ng-controller="secondChildController"> 
+				<p>Parent Name:{{parentName}}</p>  
+				<p>First Child Name:{{level1name}}</p>  
+				<p>Second Child Name:{{level2name}}</p>
+		 </div>  
+		 <div>{{x+y}}</div>
+    </div>  
+    </div>  
+    <script>  
+        var app = angular.module("myapp", []);
+        app.controller("ParentController", function($scope)   
+        {  
+            $scope.parentName = "Parent Controller";  
+			$scope.x=10;
+        });  
+        app.controller("firstChildController", function($scope)   
+        {  
+            $scope.level1name = "First Child Controller";  
+        });  
+        app.controller("secondChildController", function($scope,$rootScope)   
+        {  
+            $scope.level2name = "Second Child Controller";  
+			$rootScope.y=20;
+        });  
+    </script>
+</body>
+</html> 

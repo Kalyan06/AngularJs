@@ -1,0 +1,68 @@
+<html>
+	<body ng-app="my">
+	<div ng-controller="demo">
+	<table >
+	<tr>
+		<td>Enter Department number </td><td> <input ng-model="str.deptno" size="7" /></td>
+	</tr>
+	<tr>
+		<td>Enter Department name </td><td><input ng-model="str.dname" size="7" /></td>
+	</tr>
+	<tr>
+		<td>Enter Location</td><td> <input ng-model="str.loc" size="7"  /></td>
+	</tr>
+	<tr > <td colspan="2" align="center"><input type="button" value="Insert" ng-click="f3()"> </td> </tr>
+	</table><br/>
+	<table border="2" width="450">
+			<tr align="center">
+				<td><input  type=" text" ng-model="str.deptno" size="7"/></td>
+				<td><input  type=" text" ng-model="str.dname" size="7"/></td>
+				<td><input  type=" text" ng-model="str.loc" size="7"/></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>Dept No</th>
+				<th>Department name</th>
+				<th>Location</th>
+				<th>Select</th>
+				<th>Delete</th>
+			</tr>
+			<tr ng-repeat="item in dept track by $index">
+				<td>{{item.deptno}}</td>
+				<td>{{item.dname|uppercase}}</td>
+				<td>{{item.loc}}</td>
+				<td><a href ng-click="select($index)">Select</a></td>
+				<td><a href ng-click="delete($index)">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("my",[]);
+			app.controller("demo",function($scope)
+								{
+									$scope.str={deptno:"",dname:"",loc:""};
+									$scope.dept=[{deptno:10,dname:"Accounts",loc:"Hyderabad"},
+												 {deptno:20,dname:"sales",loc:"Chennai"},
+												 {deptno:30,dname:"marketing",loc:"Delhi"},
+												 {deptno:40,dname:"production",loc:"Mumbai"},
+												 {deptno:50,dname:"hr",loc:"Bangalore"}
+												];
+									$scope.select=function(n)
+											{
+												$scope.str=$scope.dept[n];
+											};
+									$scope.delete=function(p)
+											{
+												$scope.dept.splice(p,1);
+											};
+									$scope.f3=function()
+											{
+												$scope.dept.push($scope.str);
+											};
+								}
+			);
+		</script>
+	</body>
+</html>

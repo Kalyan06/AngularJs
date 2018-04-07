@@ -1,0 +1,19 @@
+<html>
+	<head>
+	</head>
+	<body ng-app="myApp">
+		<h3>AngularJS Controller Demo</h3>
+		<hr/>
+		<div ng-controller="Demo">
+			<h3>Welcome {{uname}}</h3>
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module('myApp',[]);
+			app.controller('Demo',function($scope)
+									{
+										$scope.uname="Kalyaan";
+									});
+		</script>
+	</body>
+</html>

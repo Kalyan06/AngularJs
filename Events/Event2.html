@@ -1,0 +1,42 @@
+<html>
+	<body ng-app="myApp">
+	<div ng-controller="Demo">
+	<input  type=" text" ng-model="str" />&nbsp;<input type="button" value="Insert" ng-click="f1()">
+	<br><br/>
+		<table border="2" width="290">
+			<tr>
+				<th>Sl No</th>
+				<th>Course name</th>
+				<th>Select</th>
+				<th> Delete</th>
+			</tr>
+			<tr ng-repeat=" item in courses track by $index"> 
+				<td>{{$index+1}}</td>
+				<td>{{item}}</td>
+				<td><a href ng-click="f2($index)">Select</a></td>
+				<td><a href ng-click="f3($index)">Remove</a></td>
+			</tr>
+		</table>
+	</div>
+		<script src="angular.js"></script>
+		<script>
+			angular.module("myApp",[]).controller("Demo",function($scope)
+								{
+									$scope.str="";
+									$scope.courses=['HTML5','CSS','jQuery','AngularJS','Bootstrap','javascript'];
+									$scope.f1=function()
+										{
+											$scope.courses.push($scope.str);
+										};
+									$scope.f2=function(n)
+										{
+											$scope.str=$scope.courses[n];
+										};
+									$scope.f3=function(re)
+										{
+											$scope.courses.splice(re, 1);
+										};
+								});
+		</script>
+	</body>
+</html>

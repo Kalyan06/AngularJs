@@ -1,0 +1,136 @@
+<!--Display modes-->
+<html>
+	<head>
+		<style>
+			.p1
+			{
+				border:2px solid blue;
+				width:90px;
+				height:50px;
+				margin:7px;
+				float:left;
+				text-align:center;
+			}
+			.p2
+			{
+				background-color:blue;
+				color:white;
+			}
+			.p3
+			{
+				padding-top:5px;
+			}
+			.b1
+			{
+				background-color:lightblue;
+			}
+			.b2
+			{
+				background-color:lightpink;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		Display modes
+		<table border="2">
+			<tr>
+				<td>List mode</td>
+				<td>
+					<select  ng-model="x" >
+							<option ng-repeat="i in ar">{{i}}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Button</td>
+				<td>
+					<input type="button" value="List" data-ng-click="x='List'"/> &nbsp;&nbsp;&nbsp;
+					<input type="button" value="Table" data-ng-click="x='Table'"/>&nbsp;&nbsp;&nbsp;
+					<input type="button" value="Custom" data-ng-click="x='Custom'"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Radio button</td>
+				<td>
+					<input type="radio" name="r1" value="List" ng-model="x"/> List
+					<input type="radio" name="r1" value="Table" ng-model="x"/> Table
+					<input type="radio" name="r1" value="Custom" ng-model="x"/> Custom
+				</td>
+			</tr>
+			<tr>
+				<td>Radio button</td>
+				<td>
+					<a href="" ng-click="x='List'">List</a>&nbsp;&nbsp;&nbsp;
+					<a href ng-click="x='Table'">Table</a>&nbsp;&nbsp;&nbsp;
+					<a href ng-click="x='Custom'">Custom</a>
+				</td>
+			</tr>
+			<tr>
+				<td>Image </td>
+				<td>
+					<a href ng-click="x='List'"><img src="V3.png" width="35px" height="35px"/></a>&nbsp;&nbsp;&nbsp;
+					<a href ng-click="x='Table'"><img src="V2.png" width="35px" height="35px"/></a>&nbsp;&nbsp;&nbsp;
+					<a href ng-click="x='Custom'"><img src="V1.png" width="35px" height="35px"/></a>
+				</td>
+			</tr>
+		</table>
+		<div ng-switch="x">
+			<div ng-switch-when="List">
+				<ul ng-repeat="item in dept">
+					<li><b><u>{{item.Dname}}</u></b> department located in <b><u>{{item.Loc}}</u></b>.</li>
+				</ul>
+			</div>
+			<div ng-switch-when="Table">
+				<table border="2" align="center" width="300px">
+					<tr style="background-color:teal;color:white">
+						<th>Dept No</th>
+						<th>Dname</th>
+						<th>Location</th>
+					</tr>
+					<tr ng-class="{b1:$odd,b2:$even}" ng-repeat="item in dept">
+						<td>{{item.Deptno}}</td>
+						<td>{{item.Dname}}</td>
+						<td>{{item.Loc}}</td>
+					</tr>
+				</table>
+			</div>
+			<div ng-switch-when="Custom">
+				<div ng-repeat="item in dept">
+					<div class="p1">
+						<div class="p2">{{item.Dname}}<br/></div>
+						<div class="p3">{{item.Loc}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("DemoController",function($scope)
+											{
+												$scope.ar=['List','Table','Custom'];
+												$scope.x="";
+												$scope.dept=[{Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"},
+															 {Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"},
+															 {Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"},
+															 {Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"}
+														   ];
+														   
+											});
+		</script>
+	</body>
+</html>

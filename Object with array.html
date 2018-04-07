@@ -1,0 +1,40 @@
+<!--Display product details -object with Array-->
+<html>
+	<head>
+		<style>
+			img
+			{
+				width:160px;
+				height:120px;
+				border:2px solid #733f60;
+				padding:7px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<h2>Product details</h2><hr/>
+		<P ng-controller="Demo">
+			Product Id : {{proObj.pid}}<br/>
+			Product Name :{{proObj.pname}}<br/>
+			Brand :{{proObj.brand}}<br/>
+			Price : INR {{proObj.price}} &#8377; <br>
+			<a ng-repeat="item in proObj.pictures" href="Camera/{{item}}" target="_blank"><img ng-src="Camera/{{item}}"/></a>
+		</P>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("Demo",function($scope)
+									{
+										$scope.proObj=
+										{
+											pid:25685,
+											pname:"Nikon coolpix B500",
+											brand:"Nikon",
+											price:13990,
+											pictures:['i1.jpeg','i2.jpeg','i3.jpeg','i4.jpeg','i5.jpeg','i6.jpeg']
+										}
+									});
+		</script>
+	</body>
+</html>

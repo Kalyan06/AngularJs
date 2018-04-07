@@ -1,0 +1,75 @@
+<!--Array of objects -->
+<html>
+	<head>
+		<style>
+			.c1
+			{
+				border:2px solid blue;
+				width:80px;
+				height:40px;
+				text-align:center;
+				margin:10px;
+				float:left;
+				border-radius:5px;
+			}
+			.c2
+			{
+				background-color:blue;
+				color:white;
+				margin:0px;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+	<div ng-controller="DemoController">
+	<a href="#bottom" style="float:right;">Go to Bottom</a>
+		<table  border="2px">
+			<tr>
+				<th>Department Number</th>
+				<th>Department Name</th>
+				<th>Location</th>
+			</tr>
+			<tr ng-repeat="item in dept">
+				<td>{{item.Deptno}}</td>
+				<td>{{item.Dname}}</td>
+				<td>{{item.Loc}}</td>
+			</tr>
+		</table>
+		<ul>
+			<li ng-repeat="item in dept">
+			<b><u>{{item.Dname}}</u></b> department located in <b><u>{{item.Loc}}</u></b>
+			</li>
+		</ul>
+		<div class="c1" ng-repeat="item in dept">
+			<p class="c2">{{item.Dname}}</p>
+			<span>{{item.Loc}}</span>
+		</div><br></br>
+	</div><br></br><br></br>
+	<div id="bottom"></div>
+	<br></br><a href="#" style="float:right;">Top</a>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("DemoController",function($scope)
+											{
+												$scope.dept=[{Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"},
+															 {Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"},
+															 {Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"},
+															 {Deptno:10,Dname:"Accounts",Loc:"Hyderabad"},
+															 {Deptno:20,Dname:"Sales",Loc:"Pune"},
+															 {Deptno:30,Dname:"Admin",Loc:"Mumbai"},
+															 {Deptno:40,Dname:"Marketing",Loc:"Chennai"},
+														   ];
+											});
+		</script>
+	</body>
+</html>

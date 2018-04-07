@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="bootstrap.min.css" />
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="DemoController">
+		<p class="text-nowrap">
+			Name: {{emp}}<br/>
+			Gender: {{gender}}<br/>
+			Grade: {{grade|gradeFilter}}
+		</p>
+		 <input type="button" class="btn btn-danger" value="Danger" />
+		 <input type="button" class="btn btn-info" value="Info" />
+		 <input type="button" class="btn btn-primary" value="Primary" />
+		 <input type="button" class="btn btn-success" value="Success" />
+		 <input type="button" class="btn btn-warning" value="Warning" />
+		 
+		</div>
+		<script src="file:///D:/KALYAAN/Books/HTML/Angular/angular.js"></script>
+		<script src="gradefilter.js"></script>
+	</body>
+</html>

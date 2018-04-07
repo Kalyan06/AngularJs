@@ -1,0 +1,68 @@
+<html>
+	<body ng-app="my">
+	<table ng-controller="demo" >
+		<tr>
+			<td>Department number</td><td><input ng-model="deptsObj.deptno" /></td>
+		</tr>
+		<tr>
+			<td>Department name</td><td><input ng-model="deptsObj.dname" /></td>
+		</tr>
+		<tr>
+			<td>Location</td><td><input ng-model="deptsObj.loc" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="button" value="First" ng-click="first()"/>&nbsp;
+				<input type="button" value="Previous" ng-click="previous()"/>&nbsp;
+				<input type="button" value="  Next  " ng-click="next()"/>&nbsp;
+				<input type="button" value="Last" ng-click="last()"/>
+			</td>
+		</tr>
+	</table>
+	<script src="angular.js"></script>
+		<script>
+			var app=angular.module("my",[]);
+			app.controller("demo",function($scope)
+								{
+									$scope.deptsObj={deptno:'',dname:'',loc:''};
+									$scope.depts=[{deptno:10,dname:"Accounts",loc:"Hyderabad"},
+												 {deptno:20,dname:"sales",loc:"chennai"},
+												 {deptno:30,dname:"marketing",loc:"delhi"},
+												 {deptno:40,dname:"production",loc:"mumbai"},
+												 {deptno:50,dname:"HR",loc:"Bangalore"}
+												];
+									$scope.deptsObj=$scope.depts[0];
+									$scope.x=0;
+									$scope.first=function()
+												{
+													$scope.x=0;
+													$scope.deptsObj=$scope.depts[$scope.x];
+												};
+									$scope.previous=function()
+												{
+													$scope.x=$scope.x-1;
+													if ($scope.x<0)
+													{
+														$scope.x=$scope.depts.length-1;
+													}
+														$scope.deptsObj=$scope.depts[$scope.x];
+												};
+									$scope.next=function()
+												{
+													$scope.x=$scope.x+1;
+													if ($scope.x==$scope.depts.length)
+													{
+														$scope.x=0;
+													}
+														$scope.deptsObj=$scope.depts[$scope.x];
+												};
+									$scope.last=function()
+												{
+													$scope.x=$scope.depts.length-1;
+													$scope.deptsObj=$scope.depts[$scope.x];
+												};
+								}
+						  );
+		</script>
+	</body>
+</html>

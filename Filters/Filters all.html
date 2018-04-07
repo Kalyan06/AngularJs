@@ -1,0 +1,87 @@
+<!--ng-show-->
+<html>
+	<head>
+		<style>
+			.c1
+			{
+				background-color:pink;
+			}
+			.c2
+			{
+				background-color:lightgreen;
+			}
+			
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="DemoController">
+		select no of items:<select ng-model="count">
+								<option>5</option>
+								<option>10</option>
+								 <option value="">All Items</option>
+							</select>
+			<table border="2px" width="550px">
+				<tr>
+					<td><input ng-model="serObj.empno" size="6"></td>
+					<td><input ng-model="serObj.ename" size="8"></td>
+					<td>
+						<select ng-model="serObj.job">	
+							<option>manager</option>
+							<option>teamlead</option>
+							<option>sales</option>
+							<option>accounts</option>
+							<option value="">All Items</option>
+						</select>
+					</td>
+					<td align="center">---</td>
+					<td>
+						<select ng-model="serObj.deptno">	
+							<option>10</option>
+							<option>20</option>
+							<option>30</option>
+							<option>40</option>
+							<option value="">All Items</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><a href="" ng-click="x='empno';y=!y">Emp No</a></th>
+					<th><a href="" ng-click="x='ename';y=!y">Ename</a></th>
+					<th><a href="" ng-click="x='job';y=!y">Job</a></th>
+					<th><a href="" ng-click="x='sal';y=!y">Salary</a></th>
+					<th><a href="" ng-click="x='deptno';y=!y">Deptno</a></th>
+				</tr>
+				<tr ng-class="{c1:$odd,c2:$even}" ng-repeat="item in empno | filter:serObj | orderBy:x:y |limitTo:count">
+					<td>{{item.empno}}</td>
+					<td>{{item.ename}}</td>
+					<td>{{item.job|uppercase}}</td>
+					<td>{{item.sal|currency:"Rs."}}</td>
+					<td>{{item.deptno}}</td>
+				</tr>
+			</table>
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("DemoController",function($scope)
+											{
+												$scope.count="";
+												$scope.serObj={empno:"",ename:"",job:"",deptno:''};
+												$scope.x="empno";
+												$scope.y=false;
+												$scope.empno=[{empno:1025,ename:"scott",job:"manager",sal:10500,deptno:10},
+																{empno:1026,ename:"smith",job:"teamlead",sal:8500,deptno:20},
+																{empno:1027,ename:"tiger",job:"sales",sal:7500,deptno:30},
+																{empno:1028,ename:"king",job:"manager",sal:11500,deptno:10},
+																{empno:1029,ename:"miller",job:"accounts",sal:9500,deptno:40},
+																{empno:1030,ename:"jon",job:"sales",sal:7900,deptno:30},
+																{empno:1031,ename:"jonson",job:"accounts",sal:8800,deptno:40},
+																{empno:1032,ename:"mike",job:"sales",sal:7900,deptno:30},
+																{empno:1033,ename:"jon",job:"sales",sal:7900,deptno:30},
+																{empno:1034,ename:"jon",job:"sales",sal:7900,deptno:30}
+												];
+											}
+			);
+		</script>
+	</body>
+</html>

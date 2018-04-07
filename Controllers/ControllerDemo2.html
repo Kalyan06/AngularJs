@@ -1,0 +1,42 @@
+<!--Display product details -object with Array-->
+<html>
+	<head></head>
+	<body ng-app="myApp">
+		<h2>Student Details</h2><hr/>
+		<table border="2" ng-controller="DemoController" align="center" height="150px" width="350px">
+			<tr>
+				<td>Student Id </td>
+				<td>{{stuobj.sid}}</td>
+			</tr>
+			<tr>
+				<td>Student Name </td>
+				<td>{{stuobj.sname}}</td>
+			</tr>
+			<tr>
+				<td>Course Name</td>
+				<td>{{stuobj.cname}}</td>
+			</tr>
+			<tr>
+				<td>Marks</td>
+				<td>
+					<ul>
+						<li ng-repeat="item in stuobj.marks track by $index">Subject-{{$index+1}} {{item}}</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("DemoController",function($scope)
+			{
+											$scope.stuobj=
+											{
+												sid:506,
+												sname:"Kalyaan",
+												cname:"B.Tech-IV",
+												marks:[98,85,75,65,86,98]
+											}});
+		</script>
+	</body>
+</html>

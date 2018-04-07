@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script src="D:\KALYAAN\Books\AngularJS\angular.js"></script>
+		<script src="ArithmaticController.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<table ng-controller="DemoController" >
+			<tr>
+				<td>Product Name</td>
+				<td><input ng-model="s3" /></td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td><input type="number" min="0" ng-model="s1"  required /></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input  ng-model="s2" placeholder="&#8377; .00"/></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="button" value="Total" ng-click="f2()"/></td>
+			</tr>
+			<tr>
+				<td colspan="2"><h3 style="padding-top:5px;margin-bottom:5px;">{{s4}}</h3></td>
+			</tr>
+			<tr>
+				<td colspan="2"><h3 style="padding-top:5px;margin-bottom:5px;"> {{result}}</h3></td>
+			</tr>
+		</table>
+	</body>
+</html>
