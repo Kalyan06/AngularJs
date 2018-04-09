@@ -7,7 +7,7 @@
 		<hr/>
 		<div ng-controller="demo">
 		Enter text <input ng-model="x"/>
-		<div ng-non-bindable ng-bind="{{x}}{{y}}">Welcome  </div>
+		<div>Welcome {{::x}}  </div>
 		</div>
 		<script src="angular.js">
 		</script>
